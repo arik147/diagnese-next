@@ -1,11 +1,11 @@
 // Import useState and axios
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/router';
+import { useRouter } from "next/navigation";
 
 const SymptomForm = ({ symptoms, handleSymptomChange }) => {
   const [expandedCategory, setExpandedCategory] = useState(null);
-  // const router = useRouter(); // Declare useRouter here
+  const router = useRouter(); // Declare useRouter here
 
   const toggleCategory = (category) => {
     setExpandedCategory(expandedCategory === category ? null : category);
@@ -69,7 +69,10 @@ const SymptomForm = ({ symptoms, handleSymptomChange }) => {
         console.log('API Response:', data);
 
         // Redirect to the prediction result page with the prediction data
-        // router.push('/result', { predictionData: data }); // Use router.push to navigate
+        router.push({
+          pathname: '/result',
+          query: data // the data
+        }); // Use router.push to navigate
       })
       .catch((error) => {
         console.error('Error:', error);

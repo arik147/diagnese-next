@@ -1,12 +1,18 @@
-// src/result/PredictionResult.js
-import React from 'react';
+'use client';
 
-const PredictionResult = ({ predictionData }) => {
+import React, { useState } from 'react';
+import { useRouter } from 'next/router'
+
+const PredictionResult = () => {
+  const [predictionData, setPredictionData] = useState(null);
+
+  const router = useRouter();
+  const data = router.query;
+
   return (
     <div>
-      {/* Tampilkan data hasil prediksi di sini */}
       <h2>Hasil Prediksi:</h2>
-      <pre>{JSON.stringify(predictionData, null, 2)}</pre>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
 };
