@@ -53,7 +53,7 @@ const SymptomForm = ({ symptoms, handleSymptomChange }) => {
     console.log('Input Data :', combinedSymptoms);
   
     // Make a POST request to the API using Axios
-    axios.post('http://127.0.0.1:8080/predict/', combinedSymptoms, {
+    axios.post('http://192.168.1.109:8080/predict/', combinedSymptoms, {
       headers: {
         'Content-Type': 'application/json',
       },
